@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Theme color variables — emerald accent on warm neutrals. */
+:root {
+  --bg: 250 250 249;     /* stone-50 */
+  --fg: 24 24 27;        /* zinc-900 */
+  --muted: 113 113 122;  /* zinc-500 */
+  --border: 228 228 231; /* zinc-200 */
+  --card: 255 255 255;
+  --accent: 5 150 105;   /* emerald-600 */
+}
+
+.dark {
+  --bg: 9 9 11;          /* zinc-950 */
+  --fg: 244 244 245;     /* zinc-100 */
+  --muted: 161 161 170;  /* zinc-400 */
+  --border: 39 39 42;    /* zinc-800 */
+  --card: 24 24 27;      /* zinc-900 */
+  --accent: 52 211 153;  /* emerald-400 */
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: rgb(var(--bg));
+  color: rgb(var(--fg));
+  font-feature-settings: "rlig" 1, "calt" 1;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Subtle selection color tied to accent */
+::selection {
+  background-color: rgb(var(--accent) / 0.25);
+}
+
+/* Pulse-dot indicator for the "Daily" nav item */
+@keyframes habitflow-pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50%      { opacity: 0.4; transform: scale(1.4); }
+}
+.daily-pulse {
+  animation: habitflow-pulse 2s ease-in-out infinite;
+}
